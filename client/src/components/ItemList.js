@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-function ItemList({item}) {
+function ItemList({item, onAddToCart}) {
     return (
         <div>
              <div className="item-list">
@@ -12,11 +12,12 @@ function ItemList({item}) {
             <div className="item-list-details">
                 <p>{item.name}</p>
                 <p>${item.price}</p>
+                <p className="blank-amt">{item.amount}</p>
                
             </div>   
         </div>
             <div className="item-list-button">
-                <button>Add to Cart</button>
+                <button onClick={() => onAddToCart(item)}>Add to Cart</button>
             </div> 
         </div>
        

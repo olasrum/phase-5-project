@@ -66,6 +66,10 @@ body {
   color: white;
 }
 
+.blank-amt {
+  color:rgb(248, 236, 238);
+}
+
 /* NavBar styling */
 
 nav {
@@ -102,7 +106,7 @@ nav {
 
 .cart span:nth-child(2) {
   padding: 0 3px;
-  background-color: aqua;
+  background-color: white;
   color: black;
   font-weight: bold;
   border-radius: 5px;
@@ -112,7 +116,7 @@ nav {
 
 .sign-out {
   cursor: pointer;
-  margin-top: 25px;
+  margin-top: 8px;
   margin-left: 40px
 }
 
@@ -129,87 +133,6 @@ nav {
 }
 
 /* Item detail styling */
-
-/* .item-detail {
-  display: flex;
-  padding: 5rem;
-}
-
-.item-detail-img-box{
-  flex: 0 0 35%;
-}
-
-.item-detail-text-box{
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 12%;
-}
-
-.item-detail-img {
-  border-radius : 8px;
-  width: 550px;
-  height: 600px;
-  position: relative;
-  left: 25%;
-}
-
-
-.item-detail-name {
-  position: relative;
-  width: 75%;
-  left: 25%;
-  text-align: center;
-}
-
-.item-detail-price {
-  position: relative;
-  left: 7%;
-  top: 8%;
-  text-align: center;
-}
-
-.item-detail-description {
-  position: relative;
-  width: 75%;
-  right: 10%;
-  top: 18%;
-  text-align: center;
-}
-
-.item-detail-button {
-  background-color: white;
-  color: black;
-  font-size: 18px;
-  border-radius : 8px;
-  font-weight: bold;
-  transition-duration: 0.4s;
-  height: 40px;
-  width: 75%;
-  right: 42%;
-  top: 30%;
-  position: relative;
-}
-
-.item-detail-button:hover {
-  background-color: black;
-  color: white;
-}
-
-.item-detail-review {
-  position: relative;
-  right: 885%;
-  top: 102%;
-  text-align: center;
-}
-
-.review-list {
-  position: relative;
-  top: 104%;
-  right: 863%;
-  list-style: none;
-} */
 
 .item-detail {
   display: flex;
@@ -246,12 +169,13 @@ nav {
 
 .item-detail-review-box {
   margin-left: 200px;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .review-list {
-  list-style: none;
+  list-style-type: "🕊"
 }
+
 
 .item-detail-review {
   margin-bottom: 10px
@@ -275,6 +199,10 @@ nav {
   display: flex;
   background-image: linear-gradient(rgb(252, 166, 181), rgb(245, 216, 219));
   padding: 20px 0 20px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .about {
@@ -284,6 +212,266 @@ nav {
 .contact {
   margin-left: 15px;
 }
+
+/* Cart styling */
+
+article {
+  width: 60%;
+  margin: auto;
+}
+
+.cart-box img {
+  width: 50px;
+  height: 50px;
+}
+
+.cart-image {
+  display: flex;
+  width: 400px;
+}
+
+.cart-image p {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.cart-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-bottom: 2px solid pink;
+  padding-bottom: 5px;
+}
+
+.cart-box div:nth-child(2) button {
+  padding: 5px 10px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.cart-box div:nth-child(3) button {
+  padding: 5px 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cart-box div:nth-child(3) button:hover {
+  background-color: black;
+  color: white;
+}
+
+.cart-box div:nth-child(3) span {
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.total span:nth-child(1) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.total span:nth-child(2) {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Warning styling */
+
+.warning {
+  margin: 5px 0 0 1300px;
+  width: 100px;
+  text-align: center;
+  background-color: rgb(252, 194, 194);
+  border: solid rgb(246, 105, 105);
+  border-radius: 8px;
+}
+
+/* Login styling */
+
+
+ .login{
+  background-image: url("https://images.pexels.com/photos/2292069/pexels-photo-2292069.jpeg?auto=compress&cs=tinysrgb&w=800");
+  background-size: 1500px 1000px;
+  background-repeat: no-repeat;
+  padding-bottom: 500px;
+ }
+
+ .login-header {
+  margin: 0;
+  padding: 40px 0 10px 0;
+  text-align: center;
+  font-size: 4em;
+ }
+
+ .dont-account {
+  padding-top: 20px;
+  font-size: 1.2em;
+  text-align: center;
+ }
+
+ .signup-button {
+  display: block;
+  margin-left: 693px;
+  margin-top: 15px;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  transition-duration: 0.4s;
+ }
+
+ .signup-button:hover {
+  background-color: black;
+  color: white;
+}
+
+ .have-account {
+  margin: 10px 0 0 0;
+  text-align: center;
+  font-size: 1.2em;
+ }
+
+ .login-button {
+  display: block;
+  margin: 10px 0 0 700px;
+  font-size: .85em;
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  transition-duration: 0.4s;
+ }
+
+ .login-button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Login form styling */
+
+.login-username {
+  padding-top: 40px;
+  font-size: 1.2em;
+  margin: 0 0 10px 658px;
+}
+
+.input-username, .input-password {
+  margin: 0 0 10px 655px;
+  display: block;
+}
+
+.login-password {
+  padding-top: 20px;
+  font-size: 1.2em;
+  margin-left: 657px;
+}
+
+.login-button2 {
+  margin-left: 700px;
+  margin-top: 10px;
+  font-size: 1em;
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  transition-duration: 0.4s;
+ }
+
+ .login-button2:hover {
+  background-color: black;
+  color: white;
+}
+  
+.login-error {
+  margin: 10px 0 0 0;
+  color: rgb(7, 7, 246);
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Sign up form styling */
+
+.signup-username {
+  padding-top:40px;
+  font-size: 1.2em;
+  margin-left: 655px;
+}
+
+.input-password_confirmation {
+  margin-left: 655px;
+  display: block;
+}
+
+.signup-password {
+  padding-top: 20px;
+  font-size: 1.2em;
+  margin-left: 655px;
+}
+
+.signup-confirm-password {
+  padding-top: 20px;
+  font-size: 1.2em;
+  margin-left: 655px;
+
+}
+
+.signup-button2 {
+  margin-left: 693px;
+  margin-top: 15px;
+  font-size: 1em;
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  transition-duration: 0.4s;
+ }
+
+ .signup-button2:hover {
+  background-color: black;
+  color: white;
+}
+
+ /* About styling */
+
+ .about-content {
+  width: 1200px;
+  margin: 15px 20px 0 80px;
+ }
+
+ .about-content p {
+  margin: 0 0 15px 0;
+ }
+
+ 
+
+
 
 
 

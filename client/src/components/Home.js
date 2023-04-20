@@ -1,19 +1,13 @@
-import {useEffect, useState} from "react";
 import ItemList from "./ItemList";
 
-function Home() {
-    const [items, setItems] = useState([]);
-
-    useEffect(() => {
-        fetch("/items")
-        .then((r) => r.json())
-        .then((items) => setItems(items))
-    }, []);
+function Home({items, onAddToCart}) {
+   
 
     const displayItems = items.map((item) => {
         return <ItemList 
                     key={item.id}
                     item={item}
+                    onAddToCart={onAddToCart}
                 />
 
     })

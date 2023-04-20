@@ -4,7 +4,9 @@ function Review({review}) {
 
     return(
         <div className="review">
-            <li className="review-comment">
+            <li 
+                className="review-comment"
+                style={{paddingLeft: "15px"}}>
                 <span >{review.comment}</span>
             </li>
         </div>

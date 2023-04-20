@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Review from "./Review";
 
-function ItemDetail() {
+function ItemDetail({onAddToCart}) {
     const [{data: item, error, status}, setItem] = useState({
         data: null,
         error: null,
@@ -39,8 +39,14 @@ function ItemDetail() {
                     <h2 className="item-detail-price">${item.price}</h2>
                     <br></br>
                     <p className="item-detail-description">{item.description}</p>
+                    <p className="blank-amt">{item.amount}</p>
                     <br></br>
-                    <button className="item-detail-button">Add to Cart</button>
+                    <button 
+                        className="item-detail-button"
+                        onClick={() => onAddToCart(item)}
+                    >   
+                        Add to Cart
+                    </button>
                 </div>
             </div>
             <div className="item-detail-review-box">

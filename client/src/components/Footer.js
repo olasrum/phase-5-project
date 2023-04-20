@@ -3,7 +3,6 @@ import {Link} from "react-router-dom"
 function Footer() {
     return (
         <div>
-            <hr></hr>
             <div className="footer">
                 <div>
                     <a className="attribute" href="https://www.flaticon.com/free-icons/bird" title="bird icons">Bird icons created by Freepik - Flaticon</a>
