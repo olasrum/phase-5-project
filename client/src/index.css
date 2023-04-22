@@ -312,7 +312,7 @@ article {
 
  .login-header {
   margin: 0;
-  padding: 40px 0 10px 0;
+  padding: 40px 0 30px 0;
   text-align: center;
   font-size: 4em;
  }
@@ -351,7 +351,7 @@ article {
 
  .login-button {
   display: block;
-  margin: 10px 0 0 700px;
+  margin: 20px 0 0 700px;
   font-size: .85em;
   padding: 5px 10px;
   font-weight: bold;
@@ -371,20 +371,21 @@ article {
 /* Login form styling */
 
 .login-username {
-  padding-top: 40px;
   font-size: 1.2em;
-  margin: 0 0 10px 658px;
+  margin-left: 690px;
 }
 
 .input-username, .input-password {
-  margin: 0 0 10px 655px;
+  margin: 5px 0 10px 650px;
   display: block;
+  border-radius: 6px;
+  padding: 5px;
 }
 
 .login-password {
   padding-top: 20px;
   font-size: 1.2em;
-  margin-left: 657px;
+  margin-left: 690px;
 }
 
 .login-button2 {
@@ -418,24 +419,26 @@ article {
 .signup-username {
   padding-top:40px;
   font-size: 1.2em;
-  margin-left: 655px;
+  margin-left: 690px;
 }
 
 .input-password_confirmation {
-  margin-left: 655px;
+  margin: 5px 0 10px 650px;
   display: block;
+  border-radius: 6px;
+  padding: 5px;
 }
 
 .signup-password {
   padding-top: 20px;
   font-size: 1.2em;
-  margin-left: 655px;
+  margin-left: 690px;
 }
 
 .signup-confirm-password {
   padding-top: 20px;
   font-size: 1.2em;
-  margin-left: 655px;
+  margin-left: 661px;
 
 }
 
