@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-
 * {
   margin: 0px;
   padding: 0px;
@@ -46,7 +45,7 @@ body {
   font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
-  padding: 5px 0  0;
+  padding: 5px 0 0 0;
 }
 
 .item-list-button button {
@@ -209,7 +208,7 @@ nav {
   margin-left: 1000px;
 }
 
-.contact {
+.footer-container .contact {
   margin-left: 15px;
 }
 
@@ -289,15 +288,44 @@ article {
   font-weight: bold;
 }
 
-/* Warning styling */
-
-.warning {
-  margin: 5px 0 0 1300px;
-  width: 100px;
-  text-align: center;
-  background-color: rgb(252, 194, 194);
-  border: solid rgb(246, 105, 105);
+.checkout-button button{
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
   border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0 5px 828px;
+  color: black;
+  transition-duration: 0.4s;
+}
+
+.checkout-button button:hover {
+  background-color: black;
+  color: white;
+}
+
+.continue-shopping-button button {
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0 5px 828px;
+  color: black;
+  transition-duration: 0.4s;
+  word-wrap: break-word;
+
+}
+
+.continue-shopping-button button:hover {
+  background-color: black;
+  color: white;
+}
+
+.or {
+  margin: 10px 0 5px 860px;
 }
 
 /* Login styling */
@@ -464,13 +492,179 @@ article {
  /* About styling */
 
  .about-content {
-  width: 1200px;
-  margin: 15px 20px 0 80px;
+  background-image: url("https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJpcmR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60");
+  background-size: 1520px 900px;
+  background-repeat: no-repeat;
+  color: rgb(9, 9, 9);
  }
 
- .about-content p {
-  margin: 0 0 15px 0;
+ .about-content p:nth-child(1) {
+  padding: 120px 0 15px 430px;
+  font-size: 1.25rem;
+  width: 700px;
+  margin: 0;
+  font-weight: bold;
  }
+
+ .about-content p:nth-child(2) {
+  padding: 60px 0 15px 430px;
+  font-size: 1.25rem;
+  width: 700px;
+  font-weight: bold;
+ }
+
+ .about-content p:nth-child(3) {
+  padding: 60px 0 180px 430px;
+  font-size: 1.25rem;
+  width: 700px;
+  font-weight: bold;
+ }
+
+ /* Checkout styling */
+
+ .checkout {
+  background-image: url("https://cdn.pixabay.com/photo/2021/05/04/07/01/great-tit-6227888__480.jpg");
+  background-size: 1520px 900px;
+  background-repeat: no-repeat;
+  color: rgb(9, 9, 9);
+ }
+
+ .checkout h1 {
+  text-align: center;
+  padding: 100px 0 15px 0;
+ }
+
+ .checkout label {
+  display: block;
+  text-align: center;
+  padding: 10px;
+ }
+
+ .checkout input {
+  padding: 0 0 0 5px;
+ }
+
+ .submit-order-button {
+  margin-top: 20px;
+  padding-bottom: 190px;
+ }
+
+ .submit-order-button button{
+  margin: 10px 0 0 715px;
+  font-size: 1em;
+  padding: 5px 5px;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  transition-duration: 0.4s;
+ }
+
+ .submit-order-button button:hover {
+  background-color: black;
+  color: white;
+}
+
+ .firstname {
+  margin-right: 60px;
+ }
+
+ .lastname {
+  margin-right: 56px;
+ }
+
+ .address {
+  margin-right: 38px;
+ }
+
+ .city {
+  margin-right: 9px;
+ }
+
+ .state {
+  margin-right: 15px;
+ }
+
+ .postcode {
+  margin-right: 45px
+ }
+
+ .checkout-blurb {
+  text-align: center;
+  width: 300px;
+  margin: 20px 0 30px 600px;
+  color: black;
+  font-weight: bold;
+ }
+
+ /* Confirmation styling */
+
+ .confirmation {
+  text-align: center;
+  margin-top: 120px;
+ }
+
+ .confirmation p {
+  padding-bottom: 15px;
+ }
+
+ .confirmation p:nth-child(4) {
+  margin-bottom: 15px;
+ }
+
+ .confirmation p:nth-child(7) {
+  margin-bottom: 15px;
+ }
+
+ /* Contact styling */
+
+ .contact {
+   background-image: url("https://images.unsplash.com/photo-1534212758080-135b3affa932?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDcwfHx0d28lMjBiaXJkc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
+  background-size: 1520px 900px;
+  background-repeat: no-repeat;
+  text-align: center;
+  /* margin: 0; */
+  color: rgb(9, 9, 9);
+ }
+
+ .contact li {
+  list-style: none;
+  padding: 20px;
+  font-size: 1.25rem;
+  font-weight: bold;
+ }
+
+ .contact h2 {
+  padding: 80px 0 30px 0;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+ }
+
+ .contact p {
+  padding: 10px 0 30px 400px;
+  width: 700px;
+  font-size: 1.25rem;
+  font-weight: bold;
+ }
+
+ .contact-phone {
+  margin-right: 100px;
+
+ }
+
+ .contact-address {
+  margin-left: 70px;
+ }
+
+ .contact p:nth-child(6) {
+  padding-bottom: 130px;
+  font-size: 1.5rem;
+  font-weight: bold;
+ }
+ 
 
  
 

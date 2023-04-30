@@ -8,12 +8,14 @@ import About from "./About";
 import Contact from "./Contact";
 import Cart from "./Cart";
 import Login from "./Login";
+import Checkout from "./Checkout";
+import Confirmation from "./Confirmation";
 
 function App() {
   const [user, setUser] = useState(null);
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
-  const [warning, setWarning] = useState(false);
+  const [orders, setOrders] = useState([]);
   
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -29,20 +31,32 @@ function App() {
       .then((items) => setItems(items))
   }, []);
 
+  useEffect(() => {
+    fetch("/orders")
+    .then((r) => r.json())
+    .then((orders) => setOrders(orders))
+  }, []);
+
   const addItemToCart = (item) => {
     let isPresent = false;
     cart.forEach((product) => {
       if (item.id === product.id)
       isPresent = true;
     })
-    if (isPresent) {
-        setWarning(true);
-        setTimeout(() => {
-          setWarning(false);
-        }, 2000);
+    if (isPresent)
         return;
-    }  
-    setCart([...cart, item]);
+    
+    const requestOptions = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({cart_item: {user_id: user.id, item_id: item.id, quantity: 1}})
+    };
+
+    fetch("/cart_items", requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      setCart([...cart, data]);
+    })
   }
 
   const updateCartItem = (item, change) => {
@@ -51,12 +65,27 @@ function App() {
       if (data.id === item.id)
         indx = index;
     });
-    const tempArr = cart;
-    tempArr[indx].amount += change;
-    if (tempArr[indx].amount === 0)  
-      tempArr[indx].amount = 1;
-    setCart([...tempArr])
+    const tempArr = [...cart];
+    tempArr[indx].quantity += change;
+    if (tempArr[indx].quantity <= 0)  
+      tempArr[indx].quantity = 1;
+
+    const requestOptions = {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({cart_item: {quantity: tempArr[indx].quantity}})
+    };
+
+    fetch(`/cart_items/${tempArr[indx].id}`, requestOptions)
+    .then(response => response.json())
+    .then(() => {
+      setCart(tempArr);
+    })
   }
+
+  const displayOrder = orders.map((order) => {
+    return order.id
+  })
 
   if (!user) return <Login onLogin={setUser} />;
 
@@ -66,9 +95,6 @@ function App() {
         size={cart.length}
         setUser={setUser}
       />
-      {
-        warning && <div className="warning">Item is already added to your cart</div>
-      }
       <Switch>
         <Route exact path="/">
           <Home 
@@ -84,6 +110,16 @@ function App() {
             cart={cart} 
             setCart={setCart}
             onUpdateCartItem={updateCartItem}/>
+        </Route>
+        <Route exact path="/checkout">
+          <Checkout 
+            cart={cart}
+            setCart={setCart}
+            user={user}
+            order={displayOrder}/>
+        </Route>
+        <Route path="/orders/:id">
+          <Confirmation/>
         </Route>
         <Route exact path="/about">
           <About/>

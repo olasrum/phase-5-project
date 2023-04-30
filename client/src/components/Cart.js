@@ -1,42 +1,47 @@
 import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 
 const Cart = ({cart, setCart, onUpdateCartItem}) => {
     const [price, setPrice] = useState(0);
 
-    const handlePrice = () => {
-        let ans = 0;
-        cart.map((item) => (
-            ans += item.amount * item.price
-        ))
-        setPrice(ans);
-    }
-
-    const handleRemove = (id) => {
-        const arr = cart.filter((item) => item.id !== id);
-        setCart(arr);
-    }
-
     useEffect(() => {
-        handlePrice();
-    })
+        let total = 0;
+        cart.forEach(cartItem => {
+            total += cartItem.item.price * cartItem.quantity;
+        });
+        setPrice(total)
+    }, [cart]);
+
+    const removeFromCart = (cartItem) => {
+        fetch(`/cart_items/${cartItem.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        .then(r => {
+            let updatedCart = cart.filter(product => product.id !== cartItem.id);
+            setCart(updatedCart)
+        })
+    }
 
     return (
         <article>
             {
-                cart?.map((item) => (
-                    <div className="cart-box" key={item.id}>
+                cart?.map((cartItem) => (
+                    <div className="cart-box" key={cartItem.item.id}>
                         <div className="cart-image">
-                            <img src={item.image} alt={item.name}/>
-                            <p>{item.name}</p>
+                            <img src={cartItem.item.image} alt={cartItem.item.name}/>
+                            <p>{cartItem.item.name}</p>
                         </div>
                         <div>
-                            <button onClick={() => onUpdateCartItem(item, +1)}> + </button>
-                            <button>{item.amount}</button>
-                            <button onClick={() => onUpdateCartItem(item, -1)}> - </button>
+                            <button onClick={() => onUpdateCartItem(cartItem, +1)}> + </button>
+                            <button>{cartItem.quantity}</button>
+                            <button onClick={() => onUpdateCartItem(cartItem, -1)}> - </button>
                         </div>
                         <div>
-                            <span>${item.amount*item.price}</span>
-                            <button onClick={() => handleRemove(item.id)}>Remove</button>
+                            <span>${cartItem.quantity*cartItem.item.price}</span>
+                            <button onClick={() => removeFromCart(cartItem)}>Remove</button>
                         </div>
                     </div>
                 ))
@@ -44,6 +49,17 @@ const Cart = ({cart, setCart, onUpdateCartItem}) => {
             <div className="total">
                 <span>Total price of your cart</span>
                 <span>$ {price}</span>
+            </div>
+            <div className="checkout-button">
+                <Link to="/checkout">
+                    <button>Checkout</button>
+                </Link> 
+            </div>
+            <div className="or">or</div>
+            <div className="continue-shopping-button">
+                <Link to="/">
+                    <button>Continue shopping</button>
+                </Link> 
             </div>
         </article>
     )

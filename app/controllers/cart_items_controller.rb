@@ -11,7 +11,7 @@ class CartItemsController < ApplicationController
     end
 
     def create
-        cart_item = Review.create!(cart_item_params)
+        cart_item = CartItem.create!(cart_item_params)
         render json: cart_item, status: :created
     end
 
@@ -34,6 +34,6 @@ class CartItemsController < ApplicationController
     end
 
     def cart_item_params
-        params.permit(:user_id, :item_id, :quantity)
+        params.require(:cart_item).permit(:user_id, :item_id, :quantity, :order_id)
     end
 end
