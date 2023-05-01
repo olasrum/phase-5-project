@@ -47,7 +47,7 @@ function Checkout({cart, setCart, user, order}) {
                 postCode: "",
             });
             setCart([])
-            history.push(`/orders/${order}`)
+            history.push(`/orders/${order.id}`)
         });
     };
 
@@ -55,7 +55,6 @@ function Checkout({cart, setCart, user, order}) {
         setFormData({...formData, [e.target.name]: e.target.value});
     };
 
-  
     return (
         <div className="checkout">
             <h1>Checkout</h1>

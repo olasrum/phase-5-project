@@ -83,10 +83,6 @@ function App() {
     })
   }
 
-  const displayOrder = orders.map((order) => {
-    return order.id
-  })
-
   if (!user) return <Login onLogin={setUser} />;
 
   return (
@@ -116,7 +112,8 @@ function App() {
             cart={cart}
             setCart={setCart}
             user={user}
-            order={displayOrder}/>
+            order={orders}
+            />
         </Route>
         <Route path="/orders/:id">
           <Confirmation/>

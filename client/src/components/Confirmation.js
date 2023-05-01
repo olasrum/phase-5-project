@@ -7,7 +7,7 @@ function Confirmation() {
         error: null,
         status: "pending",
     });
-    const {id} =useParams();
+    const {id} = useParams();
 
     useEffect(() => {
         fetch(`/orders/${id}`).then((r) => {

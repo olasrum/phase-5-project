@@ -602,8 +602,15 @@ article {
  /* Confirmation styling */
 
  .confirmation {
+  background-image: url("https://st2.depositphotos.com/16122460/45183/i/600/depositphotos_451835470-stock-photo-beautiful-bird-house-wooden-table.jpg");
+  background-size: 1520px 900px;
+  background-repeat: no-repeat;
+  color: rgb(9, 9, 9);
   text-align: center;
-  margin-top: 120px;
+  margin: 0;
+  padding: 170px 380px 0 340px;
+  font-size: 1.25rem;
+  width: 800px;
  }
 
  .confirmation p {
@@ -617,6 +624,11 @@ article {
  .confirmation p:nth-child(7) {
   margin-bottom: 15px;
  }
+
+ .confirmation p:nth-child(9) {
+  padding-bottom: 145px;
+ }
+
 
  /* Contact styling */
 
