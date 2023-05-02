@@ -191,7 +191,7 @@ nav {
 .footer-parent {
   display: flex;
   flex-direction: column;
-  min-height: 10vh;
+  min-height: 4vh;
 }
 
 .footer-container {
