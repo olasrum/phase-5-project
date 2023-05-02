@@ -1,5 +1,3 @@
-
-
 function Review({review}) {
 
     return(

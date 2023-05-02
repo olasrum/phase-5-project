@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Review from "./Review";
+import ReviewForm from "./ReviewForm";
 
-function ItemDetail({onAddToCart}) {
+function ItemDetail({onAddToCart, user}) {
     const [{data: item, error, status}, setItem] = useState({
         data: null,
         error: null,
@@ -23,6 +24,14 @@ function ItemDetail({onAddToCart}) {
             }
         });
     }, [id]);
+
+    function handleAddReview(newReview) {
+        setItem({
+            data: {...item, reviews:[...item.reviews, newReview]},
+            error: null,
+            status: "resolved",
+        });
+    }
 
     if (status === "pending") return <h1>Loading...</h1>
     if (status === "rejected") return <h1>Error: {error.error}</h1>
@@ -58,6 +67,12 @@ function ItemDetail({onAddToCart}) {
                             review={review}
                         />
                     ))}
+                        <br></br>
+                        <ReviewForm
+                            handleAddReview={handleAddReview}
+                            itemId={item.id}
+                            userId={user.id}
+                    />
                 </ul>
             </div>
         </div>   

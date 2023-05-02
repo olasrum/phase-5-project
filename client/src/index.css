@@ -138,14 +138,14 @@ nav {
 }
 
 .item-detail-img {
-  height: 550px;
-  width: 550px;
+  height: 480px;
+  width: 480px;
   border-radius: 8px;
   margin: 55px 0 25px 200px;
 }
 
 .item-detail-text-box {
-  margin: 240px 0 0 130px;
+  margin: 170px 0 0 130px;
   text-align: center;
   width: 300px;
 }
@@ -187,6 +187,16 @@ nav {
 }
 
 /* Footer styling */
+
+.footer-parent {
+  display: flex;
+  flex-direction: column;
+  min-height: 10vh;
+}
+
+.footer-container {
+  margin-top: auto;
+}
 
 .attribute {
   color: black;
@@ -676,6 +686,33 @@ article {
   font-size: 1.5rem;
   font-weight: bold;
  }
+
+ /* Review form styling */
+
+ .form-comment {
+  margin-left: 5px;
+ }
+
+ .form-submit{
+  margin-left: 5px;
+  font-size: .7em;
+  padding: 5px 5px;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  transition-duration: 0.4s;
+ }
+
+ .form-submit:hover {
+  background-color: black;
+  color: white;
+}
+
+
+
  
 
  

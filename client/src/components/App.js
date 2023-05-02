@@ -99,7 +99,10 @@ function App() {
           />
         </Route>
         <Route exact path="/items/:id">
-          <ItemDetail onAddToCart={addItemToCart}/>
+          <ItemDetail 
+            onAddToCart={addItemToCart}
+            user={user}
+          />
         </Route>
         <Route exact path="/cart">
           <Cart 
