@@ -77,9 +77,9 @@ function App() {
     })
   }
 
-  const displayOrder = orders.map((order) => {
+  const displayOrder = orders && Array.isArray(orders) ? orders.map((order) => {
     return order.id
-  })
+  }) : [];
 
   if (!user) return <Login onLogin={setUser} />;
 
