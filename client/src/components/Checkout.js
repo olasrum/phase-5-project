@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
 
-function Checkout({cart, setCart, user, order}) {
+function Checkout({cart, setCart, user, orderId}) {
     const history = useHistory();
     const [formData, setFormData] = useState({
         firstName: "",
@@ -47,8 +47,7 @@ function Checkout({cart, setCart, user, order}) {
                 postCode: "",
             });
             setCart([])
-            console.log(order)
-            history.push(`/orders/${order.id}`)
+            history.push(`/orders/${orderId}`)
         });
     };
 

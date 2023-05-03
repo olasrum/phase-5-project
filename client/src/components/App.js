@@ -12,8 +12,7 @@ import Checkout from "./Checkout";
 import Confirmation from "./Confirmation";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [items, setItems] = useState([]);
+  const [user, setUser] = useState(null); 
   const [cart, setCart] = useState([]);
   const [orders, setOrders] = useState([]);
   
@@ -25,11 +24,6 @@ function App() {
     });
   }, []);
 
-  useEffect(() => {
-      fetch("/items")
-      .then((r) => r.json())
-      .then((items) => setItems(items))
-  }, []);
 
   useEffect(() => {
     fetch("/orders")
@@ -83,6 +77,10 @@ function App() {
     })
   }
 
+  const displayOrder = orders.map((order) => {
+    return order.id
+  })
+
   if (!user) return <Login onLogin={setUser} />;
 
   return (
@@ -95,7 +93,6 @@ function App() {
         <Route exact path="/">
           <Home 
             onAddToCart={addItemToCart}
-            items={items}
           />
         </Route>
         <Route exact path="/items/:id">
@@ -115,11 +112,12 @@ function App() {
             cart={cart}
             setCart={setCart}
             user={user}
-            order={orders}
+            orderId={displayOrder}
             />
         </Route>
         <Route path="/orders/:id">
-          <Confirmation/>
+          <Confirmation 
+            orderId={displayOrder}/>
         </Route>
         <Route exact path="/about">
           <About/>
