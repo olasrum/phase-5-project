@@ -47,6 +47,7 @@ function Checkout({cart, setCart, user, order}) {
                 postCode: "",
             });
             setCart([])
+            console.log(order)
             history.push(`/orders/${order.id}`)
         });
     };
