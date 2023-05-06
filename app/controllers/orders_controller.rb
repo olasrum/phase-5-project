@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
   def index
-    orders = Order.all
+    orders = Order.last
     render json: orders
   end
 
@@ -41,6 +42,12 @@ class OrdersController < ApplicationController
       order_number = rand(1_000_000_000..2_000_000_000)
       return order_number unless Order.exists?(order_number: order_number)
     end
-  end  
+  end
+    
+
+  def render_unprocessable_entity_response(invalid)
+    render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+  end
+
   
 end

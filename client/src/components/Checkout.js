@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
 
-function Checkout({cart, setCart, user, orderId}) {
+function Checkout({cart, setCart, user, order}) {
     const history = useHistory();
     const [formData, setFormData] = useState({
         firstName: "",
@@ -23,7 +23,7 @@ function Checkout({cart, setCart, user, orderId}) {
                     user_id: user.id,
                     cart_items_attributes: cart.map((cart_item) => ({
                         item_id: cart_item.item.id,
-                        quantity: cart_item.quantity,
+                        quantity: cart_item.quantity,     
                     })),
                     first_name: formData.firstName,
                     last_name: formData.lastName,
@@ -47,7 +47,7 @@ function Checkout({cart, setCart, user, orderId}) {
                 postCode: "",
             });
             setCart([])
-            history.push(`/orders/${orderId}`)
+            history.push(`/orders/${order.id}`)
         });
     };
 

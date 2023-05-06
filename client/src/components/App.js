@@ -14,7 +14,7 @@ import Confirmation from "./Confirmation";
 function App() {
   const [user, setUser] = useState(null); 
   const [cart, setCart] = useState([]);
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState();
   
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -27,8 +27,8 @@ function App() {
 
   useEffect(() => {
     fetch("/orders")
-    .then((r) => r.json())
-    .then((orders) => setOrders(orders))
+      .then((r) => r.json())
+      .then((orders) => setOrders(orders));
   }, []);
 
   const addItemToCart = (item) => {
@@ -47,7 +47,7 @@ function App() {
     };
 
     fetch("/cart_items", requestOptions)
-    .then(response => response.json())
+    .then((r) => r.json())
     .then(data => {
       setCart([...cart, data]);
     })
@@ -71,15 +71,12 @@ function App() {
     };
 
     fetch(`/cart_items/${tempArr[indx].id}`, requestOptions)
-    .then(response => response.json())
+    .then((r) => r.json())
     .then(() => {
       setCart(tempArr);
     })
   }
 
-  const displayOrder = orders && Array.isArray(orders) ? orders.map((order) => {
-    return order.id
-  }) : [];
 
   if (!user) return <Login onLogin={setUser} />;
 
@@ -112,13 +109,12 @@ function App() {
             cart={cart}
             setCart={setCart}
             user={user}
-            orderId={displayOrder}
-            />
+            order={orders}
+            />   
         </Route>
         <Route path="/orders/:id">
-          <Confirmation 
-            orderId={displayOrder}/>
-        </Route>
+           <Confirmation/>
+         </Route>
         <Route exact path="/about">
           <About/>
         </Route>

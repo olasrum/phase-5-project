@@ -9,7 +9,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.string :address
       t.string :city
       t.string :state
-      t.integer :postcode
+      t.string :postcode
 
       t.timestamps
     end

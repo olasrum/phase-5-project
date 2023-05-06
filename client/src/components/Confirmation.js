@@ -1,15 +1,17 @@
 import {useEffect, useState} from "react";
+import { useParams } from "react-router-dom";
 
-function Confirmation({orderId}) {
+function Confirmation() {
     const [{data: order, error, status}, setOrder] = useState({
         data: null,
         error: null,
         status: "pending",
     });
+    const {id} = useParams();
    
 
     useEffect(() => {
-        fetch(`/orders/${orderId}`).then((r) => {
+        fetch(`/orders/${id}`).then((r) => {
             if (r.ok) {
                 r.json().then((order) =>
                 setOrder({data: order, error: null, status: "resolved"})
@@ -20,7 +22,7 @@ function Confirmation({orderId}) {
                 );
             }
         });
-    }, []);
+    }, [id]);
 
     if (status === "pending") return <h1>Loading...</h1>
     if (status === "rejected") return <h1>Error: {error.error}</h1>
