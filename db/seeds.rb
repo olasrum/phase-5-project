@@ -92,5 +92,28 @@ Review.create(comment: 'So fresh!', user_id: user4.id, item_id: item19.id)
 Review.create(comment: 'Absolutely adorable', user_id: user5.id, item_id: item20.id)
 Review.create(comment: 'Pink is my favourite colour', user_id: user3.id, item_id: item20.id)
 
+#create orders
+
+puts 'Seeding orders..'
+
+Order.create(
+    user_id: user1.id,
+    order_number: 15639846,
+    cart_items_attributes: [
+      {
+        item_id: item20.id,
+        quantity: 1,
+        user: User.find(user1.id)
+      }
+    ],
+    first_name: "lulu",
+    last_name: "henry",
+    address: "1 long road",
+    city: "longtown",
+    state: "qld",
+    postcode: "4444"
+  )
+  
+
 
 puts "✅ Done seeding!"

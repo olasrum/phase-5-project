@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
       :city,
       :state,
       :postcode,
-      :cart_items_attributes => [:item_id, :quantity]
+      :cart_items_attributes => [:user_id, :item_id, :quantity]
     )
     order = Order.create!(order_params.merge(order_number: order_number))
     

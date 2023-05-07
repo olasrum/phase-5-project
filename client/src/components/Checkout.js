@@ -22,6 +22,7 @@ function Checkout({cart, setCart, user, order}) {
                 order: {
                     user_id: user.id,
                     cart_items_attributes: cart.map((cart_item) => ({
+                        user_id: cart_item.user.id,
                         item_id: cart_item.item.id,
                         quantity: cart_item.quantity,     
                     })),
