@@ -50,16 +50,20 @@ const Cart = ({cart, setCart, onUpdateCartItem}) => {
                 <span>Total price of your cart</span>
                 <span>$ {price}</span>
             </div>
+            <div className="checkout-box">
             <div className="checkout-button">
                 <Link to="/checkout">
                     <button>Checkout</button>
                 </Link> 
             </div>
-            <div className="or">or</div>
+            <div className="or">
+                <p className="or-p">or</p>
+            </div>
             <div className="continue-shopping-button">
                 <Link to="/">
-                    <button>Continue shopping</button>
+                    <button>Continue<br></br> shopping</button>
                 </Link> 
+            </div>
             </div>
         </article>
     )
