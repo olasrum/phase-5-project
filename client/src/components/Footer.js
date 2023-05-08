@@ -8,6 +8,7 @@ function Footer() {
                     <div className="attribute">
                         <a href="https://www.flaticon.com/free-icons/bird" title="bird icons">Bird icons created by Freepik - Flaticon</a>
                     </div>
+                    <div className="about-contact">
                     <div className="about">
                     <Link to="/about"
                       style={{ textDecoration: "none",
@@ -25,6 +26,7 @@ function Footer() {
                          Contact
                     </Link>   
                     </div>   
+                    </div>
                 </div>
             </div>
         </div>

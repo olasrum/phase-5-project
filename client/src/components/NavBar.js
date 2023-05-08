@@ -18,10 +18,12 @@ function NavBar({size, setUser}) {
                       style={{ textDecoration: "none",
                                marginTop: "15px"}}
                 >
+                    <div className="shop-name-logo">
                     <span className="shop-name">
                     For the love of birds
                     </span>
                     <img className="logo" src={logo} alt="Flying birds logo"></img>
+                    </div>
                 </Link>
                 <div className="cart">
                 <Link to="/cart">
